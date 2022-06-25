@@ -34,6 +34,8 @@ jobs:
         with:
           name: NoMansSky.Api
           path: Build/Release/net5/NoMansSky.Api/
+    outputs:
+      build_version: ${{ env.VERSION }}
   release:
     name: Release NoMansSky.Api
     # Only run this job if the commit was tagged.
@@ -45,21 +47,26 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: NoMansSky.Api
-      - name: Get NoMansSky.Api tag version
-        run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
-        shell: bash
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+        with:
+          # Optionally strip `v` prefix
+          strip_v: true
       - name: Upload resources if version matches
-        if: env.VERSION == env.TAG
+        if: contains(needs.build.outputs.build_version, steps.tag.outputs.tag)
         uses: softprops/action-gh-release@v1
         with:
-          name: "${{ env.TAG }}"
-          tag_name: ${{ env.TAG }}
-          files: NoMansSky.Api.zip
+          name: "${{ steps.tag.outputs.tag }}"
+          tag_name: ${{ steps.tag.outputs.tag }}
+          files: NoMansSky.Api
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Check if tag doesn't match version
-        if: env.VERSION != env.TAG
+        if: "!contains(needs.build.outputs.build_version, steps.tag.outputs.tag)"
         run: |
           echo "There is a version mismatch between the tag and NoMansSky.Api version!"
+          echo ${{ needs.build.outputs.build_version }}
+          echo ${{ steps.tag.outputs.tag }}
           exit 1
         shell: bash
