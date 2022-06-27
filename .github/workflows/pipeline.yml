@@ -47,6 +47,11 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: NoMansSky.Api
+      - name: Create release zip
+        run: |
+          cd ..
+          7z a -tzip NoMansSky.Api.zip NoMansSky.Api
+          mv NoMansSky.Api.zip ./NoMansSky.Api/NoMansSky.Api.zip
       - name: Get tag
         id: tag
         uses: dawidd6/action-get-tag@v1
@@ -59,7 +64,7 @@ jobs:
         with:
           name: "${{ steps.tag.outputs.tag }}"
           tag_name: ${{ steps.tag.outputs.tag }}
-          files: NoMansSky.Api
+          files: NoMansSky.Api.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Check if tag doesn't match version
