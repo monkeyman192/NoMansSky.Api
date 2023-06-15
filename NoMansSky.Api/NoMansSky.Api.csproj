@@ -22,7 +22,7 @@
     <!-- <ReloadedLinkAssemblies Include="Reloaded.Memory" /> -->
   </ItemGroup>
 
-  <Import Project="..\..\NoMansSky.Api.Definitions-Before new Generator\NoMansSky.Api.Definitions.Shared\NoMansSky.Api.Definitions.Shared.projitems" Label="Shared" />
+  <!-- Import Project="..\..\NoMansSky.Api.Definitions\NoMansSky.Api.Definitions.Shared\NoMansSky.Api.Definitions.Shared.projitems" Label="Shared" /-->
 
   <Import Project="Reloaded.Trimming.targets" />
   <Import Project="Reloaded.Checks.targets" />
@@ -81,6 +81,9 @@
 		<Reference Include="NativeGenericDelegates">
 		  <HintPath>..\Dependencies\NativeGenericDelegates.dll</HintPath>
 		</Reference>
+    <Reference Include="NoMansSky.Api.Definitions">
+      <HintPath>..\..\NoMansSky.Api.Definitions\NoMansSky.Api.Definitions\bin\Debug\net7.0\NoMansSky.Api.Definitions.dll</HintPath>
+    </Reference>
 	</ItemGroup>
 	
 	

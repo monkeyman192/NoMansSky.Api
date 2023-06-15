@@ -1,4 +1,5 @@
 ﻿using Reloaded.Hooks.Definitions.X64;
+using Reloaded.Hooks.Definitions;
 using System.Collections.Generic;
 
 namespace NoMansSky.Api.Hooks.Mbin

@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoMansSky.Api.TestMod", "No
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoMansSky.Api", "NoMansSky.Api\NoMansSky.Api.csproj", "{B45AD6E1-B2B4-46E5-B3CF-5592755337D8}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "NoMansSky.Api.Definitions.Shared", "..\NoMansSky.Api.Definitions-Before new Generator\NoMansSky.Api.Definitions.Shared\NoMansSky.Api.Definitions.Shared.shproj", "{B52431BC-9C5B-4EED-A58D-4884CF2F65A7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,9 +45,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83977EC7-9A47-455A-AEEF-7D3F629CCE55}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\NoMansSky.Api.Definitions-Before new Generator\NoMansSky.Api.Definitions.Shared\NoMansSky.Api.Definitions.Shared.projitems*{b45ad6e1-b2b4-46e5-b3cf-5592755337d8}*SharedItemsImports = 5
-		..\NoMansSky.Api.Definitions-Before new Generator\NoMansSky.Api.Definitions.Shared\NoMansSky.Api.Definitions.Shared.projitems*{b52431bc-9c5b-4eed-a58d-4884cf2f65a7}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
